@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Forecastr.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    Forecastr * forecastr = [Forecastr sharedManager];
+    forecastr.apiKey = @"de7d16091bef159796e176e83ef452dd";
+    
+    [forecastr getForecastForLatitude:45.5081 longitude:-73.5550 time:nil exclusions:nil extend:nil language:nil success:^(id JSON) {
+        NSLog(@"JSON Response was: %@", JSON);
+    } failure:^(NSError *error, id response) {
+        NSLog(@"Error while retrieving forecast: %@", [forecastr messageForError:error withResponse:response]);
+    }];
+    
     return YES;
 }
 
