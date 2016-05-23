@@ -6,14 +6,14 @@
 //  Copyright © 2016 Qult. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "MOMAppDelegate.h"
 #import "Forecastr.h"
 
-@interface AppDelegate ()
+@interface MOMAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation MOMAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -21,8 +21,9 @@
     
     Forecastr * forecastr = [Forecastr sharedManager];
     forecastr.apiKey = @"de7d16091bef159796e176e83ef452dd";
+    forecastr.units = @"si";
     
-    [forecastr getForecastForLatitude:45.5081 longitude:-73.5550 time:nil exclusions:nil extend:nil language:nil success:^(id JSON) {
+    [forecastr getForecastForLatitude:41.3851 longitude:2.1734 time:nil exclusions:nil extend:nil language:@"es" success:^(id JSON) {
         NSLog(@"JSON Response was: %@", JSON);
     } failure:^(NSError *error, id response) {
         NSLog(@"Error while retrieving forecast: %@", [forecastr messageForError:error withResponse:response]);
