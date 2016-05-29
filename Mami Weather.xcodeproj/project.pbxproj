@@ -10,6 +10,7 @@
 		22DF2D11387809F2FA803D72 /* Pods_Mami_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE51A6A42BC4749BA00F879 /* Pods_Mami_Weather.framework */; };
 		D3045D1B1CF37BD70035CC38 /* MOMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3045D1A1CF37BD70035CC38 /* MOMMainViewController.m */; };
 		D3045D201CF37CF10035CC38 /* 3DAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D3045D1F1CF37CF10035CC38 /* 3DAssets.scnassets */; };
+		D34E97B31CFB57A000F9D441 /* MOMSceneUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D34E97B21CFB57A000F9D441 /* MOMSceneUtils.m */; };
 		D350EE0D1CF0768A00E2E505 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D350EE0C1CF0768A00E2E505 /* main.m */; };
 		D350EE101CF0768A00E2E505 /* MOMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D350EE0F1CF0768A00E2E505 /* MOMAppDelegate.m */; };
 		D350EE161CF0768A00E2E505 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D350EE141CF0768A00E2E505 /* Main.storyboard */; };
@@ -35,6 +36,8 @@
 		D3045D191CF37BD70035CC38 /* MOMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMMainViewController.h; sourceTree = "<group>"; };
 		D3045D1A1CF37BD70035CC38 /* MOMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMMainViewController.m; sourceTree = "<group>"; };
 		D3045D1F1CF37CF10035CC38 /* 3DAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = 3DAssets.scnassets; sourceTree = "<group>"; };
+		D34E97B11CFB57A000F9D441 /* MOMSceneUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMSceneUtils.h; sourceTree = "<group>"; };
+		D34E97B21CFB57A000F9D441 /* MOMSceneUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMSceneUtils.m; sourceTree = "<group>"; };
 		D350EE081CF0768A00E2E505 /* Mami Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mami Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D350EE0C1CF0768A00E2E505 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D350EE0E1CF0768A00E2E505 /* MOMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOMAppDelegate.h; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				D3045D1F1CF37CF10035CC38 /* 3DAssets.scnassets */,
 				D3045D191CF37BD70035CC38 /* MOMMainViewController.h */,
 				D3045D1A1CF37BD70035CC38 /* MOMMainViewController.m */,
+				D34E97B11CFB57A000F9D441 /* MOMSceneUtils.h */,
+				D34E97B21CFB57A000F9D441 /* MOMSceneUtils.m */,
 			);
 			path = "Mami Weather";
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 			files = (
 				D350EE101CF0768A00E2E505 /* MOMAppDelegate.m in Sources */,
 				D3045D1B1CF37BD70035CC38 /* MOMMainViewController.m in Sources */,
+				D34E97B31CFB57A000F9D441 /* MOMSceneUtils.m in Sources */,
 				D350EE0D1CF0768A00E2E505 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

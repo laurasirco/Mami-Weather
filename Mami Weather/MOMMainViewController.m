@@ -7,9 +7,14 @@
 //
 
 #import "MOMMainViewController.h"
+#import "MOMSceneUtils.h"
 
 @interface MOMMainViewController (){
-    CAAnimation * windAnimation;
+    CAAnimation * lowWindAnimation;
+    CAAnimation * highWindAnimation;
+    SCNNode * plantArmature;
+    SCNScene * windowScene;
+    SCNView * sceneView;
 }
 
 @end
@@ -24,40 +29,61 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Window Scene Configuration
 
 - (void) setupScene {
     
-    SCNScene * scene = [SCNScene sceneNamed:@"3DAssets.scnassets/planta.scn"];
-    self.scene.scene = scene;
-    self.scene.playing = YES;
-    self.scene.allowsCameraControl = YES;
-    self.scene.backgroundColor = [UIColor blackColor];
+    sceneView = (SCNView *)self.view;
+    windowScene = [SCNScene sceneNamed:@"3DAssets.scnassets/windowNoAnim.scn"];
     
-    SCNNode *armature = [scene.rootNode childNodeWithName:@"Armature" recursively:YES];
-    windAnimation = [self loadAnimationFromSceneNamed:@"3DAssets.scnassets/PlantaAnim.scn"];
-    windAnimation.speed = 1;
-    windAnimation.repeatCount = FLT_MAX;
-    windAnimation.usesSceneTimeBase = NO;
-    [armature addAnimation:windAnimation forKey:@"wind"];
+    sceneView.scene = windowScene;
+    sceneView.playing = YES;
+    sceneView.allowsCameraControl = YES;
+    sceneView.backgroundColor = [UIColor clearColor];
+    
+    plantArmature = [windowScene.rootNode childNodeWithName:@"Armature" recursively:YES];
+
+    [self loadAnimations];
+    //[self startHighWindAnimation];
 }
 
-#pragma mark - Utils
+- (void) loadAnimations {
+    
+    lowWindAnimation = [MOMSceneUtils loadAnimationFromSceneNamed:@"3DAssets.scnassets/lowWind.scn"];
+    lowWindAnimation.speed = 1;
+    lowWindAnimation.repeatCount = FLT_MAX;
+    lowWindAnimation.usesSceneTimeBase = NO;
+    
+    highWindAnimation = [MOMSceneUtils loadAnimationFromSceneNamed:@"3DAssets.scnassets/highWind.scn"];
+    highWindAnimation.speed = 1;
+    highWindAnimation.repeatCount = FLT_MAX;
+    highWindAnimation.usesSceneTimeBase = NO;
+    
+    [plantArmature addAnimation:lowWindAnimation forKey:@"lowWindAnimation"];
 
-- (CAAnimation *)loadAnimationFromSceneNamed:(NSString *)sceneName {
-    SCNScene *scene = [SCNScene sceneNamed:sceneName];
-    
-    // find top level animation
-    __block CAAnimation *animation = nil;
-    [scene.rootNode enumerateChildNodesUsingBlock:^(SCNNode *child, BOOL *stop) {
-        if (child.animationKeys.count > 0) {
-            animation = [child animationForKey:child.animationKeys[0]];
-            *stop = YES;
-        }
-    }];
-    
-    return animation;
 }
+
+- (void) startLowWindAnimation {
+    
+    [plantArmature addAnimation:lowWindAnimation forKey:@"lowWindAnimation"];
+}
+
+- (void) stopLowWindAnimation {
+    
+    [plantArmature removeAnimationForKey:@"lowWindAnimation"];
+}
+
+- (void) startHighWindAnimation {
+    
+    [plantArmature addAnimation:highWindAnimation forKey:@"highWindAnimation"];
+}
+
+- (void) stopHighWindAnimation {
+    
+    [plantArmature removeAnimationForKey:@"highWindAnimation"];
+}
+
 
 @end

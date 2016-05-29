@@ -11,6 +11,4 @@
 
 @interface MOMMainViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet SCNView *scene;
-
 @end
