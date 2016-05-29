@@ -14,7 +14,6 @@
     CAAnimation * highWindAnimation;
     SCNNode * plantArmature;
     SCNScene * windowScene;
-    SCNView * sceneView;
 }
 
 @end
@@ -35,18 +34,17 @@
 
 - (void) setupScene {
     
-    sceneView = (SCNView *)self.view;
     windowScene = [SCNScene sceneNamed:@"3DAssets.scnassets/windowNoAnim.scn"];
+    self.sceneView.scene = windowScene;
+    self.sceneView.playing = YES;
+    self.sceneView.allowsCameraControl = YES;
     
-    sceneView.scene = windowScene;
-    sceneView.playing = YES;
-    sceneView.allowsCameraControl = YES;
-    sceneView.backgroundColor = [UIColor clearColor];
+    self.sceneView.backgroundColor = [UIColor clearColor];
     
-    plantArmature = [windowScene.rootNode childNodeWithName:@"Armature" recursively:YES];
+    plantArmature = [windowScene.rootNode childNodeWithName:@"windowNoAnim-1" recursively:YES];
 
     [self loadAnimations];
-    //[self startHighWindAnimation];
+    [self startHighWindAnimation];
 }
 
 - (void) loadAnimations {
@@ -60,9 +58,6 @@
     highWindAnimation.speed = 1;
     highWindAnimation.repeatCount = FLT_MAX;
     highWindAnimation.usesSceneTimeBase = NO;
-    
-    [plantArmature addAnimation:lowWindAnimation forKey:@"lowWindAnimation"];
-
 }
 
 - (void) startLowWindAnimation {
@@ -84,6 +79,5 @@
     
     [plantArmature removeAnimationForKey:@"highWindAnimation"];
 }
-
 
 @end

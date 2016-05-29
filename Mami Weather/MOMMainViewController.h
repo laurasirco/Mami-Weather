@@ -11,4 +11,6 @@
 
 @interface MOMMainViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet SCNView * sceneView;
+
 @end
