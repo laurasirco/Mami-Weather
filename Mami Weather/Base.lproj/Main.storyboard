@@ -3,7 +3,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -19,15 +18,32 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0EU-82-D5U">
-                                <rect key="frame" x="0.0" y="20" width="375" height="334"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </sceneKitView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="20º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQJ-bW-iEv">
+                                <rect key="frame" x="26" y="420" width="94" height="67"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="56"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se ha quedado una buena mañana" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9M-I9-HL9">
+                                <rect key="frame" x="140" y="420" width="219" height="67"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0EU-82-D5U" secondAttribute="trailing" id="5Gj-U8-qy9"/>
-                            <constraint firstItem="0EU-82-D5U" firstAttribute="top" secondItem="mDp-fZ-GC9" secondAttribute="topMargin" constant="20" id="edM-Cl-Dz4"/>
+                            <constraint firstItem="g9M-I9-HL9" firstAttribute="centerY" secondItem="oQJ-bW-iEv" secondAttribute="centerY" id="Hi4-1R-yFw"/>
+                            <constraint firstItem="oQJ-bW-iEv" firstAttribute="leading" secondItem="mDp-fZ-GC9" secondAttribute="leadingMargin" constant="10" id="Rfj-5i-had"/>
+                            <constraint firstItem="g9M-I9-HL9" firstAttribute="leading" secondItem="oQJ-bW-iEv" secondAttribute="trailing" constant="20" id="WBv-cm-Hqx"/>
+                            <constraint firstItem="g9M-I9-HL9" firstAttribute="height" secondItem="oQJ-bW-iEv" secondAttribute="height" id="cnp-c0-gSC"/>
+                            <constraint firstItem="0EU-82-D5U" firstAttribute="top" secondItem="mDp-fZ-GC9" secondAttribute="topMargin" id="edM-Cl-Dz4"/>
                             <constraint firstItem="0EU-82-D5U" firstAttribute="leading" secondItem="mDp-fZ-GC9" secondAttribute="leading" id="k33-vf-3gh"/>
-                            <constraint firstItem="0EU-82-D5U" firstAttribute="height" secondItem="mDp-fZ-GC9" secondAttribute="height" multiplier="1/2" id="zDV-D7-1S0"/>
+                            <constraint firstItem="oQJ-bW-iEv" firstAttribute="centerY" secondItem="mDp-fZ-GC9" secondAttribute="centerY" constant="120" id="lOs-6O-H7O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g9M-I9-HL9" secondAttribute="trailing" id="mnl-Kf-kQi"/>
+                            <constraint firstItem="0EU-82-D5U" firstAttribute="height" secondItem="mDp-fZ-GC9" secondAttribute="height" id="zDV-D7-1S0"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -37,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="600" y="136"/>
+            <point key="canvasLocation" x="599.5" y="135.5"/>
         </scene>
     </scenes>
 </document>

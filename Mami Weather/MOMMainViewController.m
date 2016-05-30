@@ -23,11 +23,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self setupScene];
+    
+    [self setup];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void) setup {
+    
+    [self setupScene];
+    
+    [self setupAmbientColors];
 }
 
 #pragma mark - Window Scene Configuration
@@ -37,14 +45,14 @@
     windowScene = [SCNScene sceneNamed:@"3DAssets.scnassets/windowNoAnim.scn"];
     self.sceneView.scene = windowScene;
     self.sceneView.playing = YES;
-    self.sceneView.allowsCameraControl = YES;
+    //self.sceneView.allowsCameraControl = YES;
     
     self.sceneView.backgroundColor = [UIColor clearColor];
     
     plantArmature = [windowScene.rootNode childNodeWithName:@"windowNoAnim-1" recursively:YES];
 
     [self loadAnimations];
-    [self startHighWindAnimation];
+    [self startLowWindAnimation];
 }
 
 - (void) loadAnimations {
@@ -78,6 +86,14 @@
 - (void) stopHighWindAnimation {
     
     [plantArmature removeAnimationForKey:@"highWindAnimation"];
+}
+
+- (void) setupAmbientColors {
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.view.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0.3 green:0.6 blue:0.95 alpha:1.0] CGColor], (id)[[UIColor colorWithRed:1.0 green:0.5 blue:0.1 alpha:1.0] CGColor], nil];
+    [self.view.layer insertSublayer:gradient atIndex:0];
 }
 
 @end
