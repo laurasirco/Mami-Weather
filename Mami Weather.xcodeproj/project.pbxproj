@@ -17,6 +17,8 @@
 		D350EE181CF0768A00E2E505 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D350EE171CF0768A00E2E505 /* Assets.xcassets */; };
 		D350EE1B1CF0768A00E2E505 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D350EE191CF0768A00E2E505 /* LaunchScreen.storyboard */; };
 		D350EE261CF0768A00E2E505 /* Mami_WeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D350EE251CF0768A00E2E505 /* Mami_WeatherTests.m */; };
+		DBFAF97A1D4220750085BED8 /* MOMWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFAF9791D4220750085BED8 /* MOMWeather.m */; };
+		DBFAF97D1D4225530085BED8 /* MOMForecastrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFAF97C1D4225530085BED8 /* MOMForecastrManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,10 @@
 		D350EE211CF0768A00E2E505 /* Mami WeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mami WeatherTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D350EE251CF0768A00E2E505 /* Mami_WeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mami_WeatherTests.m; sourceTree = "<group>"; };
 		D350EE271CF0768A00E2E505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBFAF9781D4220750085BED8 /* MOMWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMWeather.h; sourceTree = "<group>"; };
+		DBFAF9791D4220750085BED8 /* MOMWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMWeather.m; sourceTree = "<group>"; };
+		DBFAF97B1D4225530085BED8 /* MOMForecastrManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMForecastrManager.h; sourceTree = "<group>"; };
+		DBFAF97C1D4225530085BED8 /* MOMForecastrManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMForecastrManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,7 @@
 		D350EE0A1CF0768A00E2E505 /* Mami Weather */ = {
 			isa = PBXGroup;
 			children = (
+				DBFAF9771D42204A0085BED8 /* Model */,
 				D350EE0E1CF0768A00E2E505 /* MOMAppDelegate.h */,
 				D350EE0F1CF0768A00E2E505 /* MOMAppDelegate.m */,
 				D350EE141CF0768A00E2E505 /* Main.storyboard */,
@@ -122,6 +129,8 @@
 				D3045D1A1CF37BD70035CC38 /* MOMMainViewController.m */,
 				D34E97B11CFB57A000F9D441 /* MOMSceneUtils.h */,
 				D34E97B21CFB57A000F9D441 /* MOMSceneUtils.m */,
+				DBFAF97B1D4225530085BED8 /* MOMForecastrManager.h */,
+				DBFAF97C1D4225530085BED8 /* MOMForecastrManager.m */,
 			);
 			path = "Mami Weather";
 			sourceTree = "<group>";
@@ -141,6 +150,15 @@
 				D350EE271CF0768A00E2E505 /* Info.plist */,
 			);
 			path = "Mami WeatherTests";
+			sourceTree = "<group>";
+		};
+		DBFAF9771D42204A0085BED8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DBFAF9781D4220750085BED8 /* MOMWeather.h */,
+				DBFAF9791D4220750085BED8 /* MOMWeather.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,9 +316,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D350EE101CF0768A00E2E505 /* MOMAppDelegate.m in Sources */,
+				DBFAF97D1D4225530085BED8 /* MOMForecastrManager.m in Sources */,
 				D3045D1B1CF37BD70035CC38 /* MOMMainViewController.m in Sources */,
 				D34E97B31CFB57A000F9D441 /* MOMSceneUtils.m in Sources */,
 				D350EE0D1CF0768A00E2E505 /* main.m in Sources */,
+				DBFAF97A1D4220750085BED8 /* MOMWeather.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,12 +22,17 @@ PODS:
     - AFNetworking/NSURLSession
   - Forecastr (0.2.3):
     - AFNetworking (~> 2.6.0)
+  - Mantle (2.0.7):
+    - Mantle/extobjc (= 2.0.7)
+  - Mantle/extobjc (2.0.7)
 
 DEPENDENCIES:
   - Forecastr
+  - Mantle
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Forecastr: 2f0967abf9e439f5ac1f6717fc56239647dfbfa1
+  Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
 
 COCOAPODS: 0.39.0

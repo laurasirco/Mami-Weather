@@ -7,7 +7,7 @@
 //
 
 #import "MOMAppDelegate.h"
-#import "Forecastr.h"
+#import "MOMForecastrManager.h"
 
 @interface MOMAppDelegate ()
 
@@ -19,14 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    Forecastr * forecastr = [Forecastr sharedManager];
-    forecastr.apiKey = @"de7d16091bef159796e176e83ef452dd";
-    forecastr.units = @"si";
-    
-    [forecastr getForecastForLatitude:41.3851 longitude:2.1734 time:nil exclusions:nil extend:nil language:@"es" success:^(id JSON) {
-        NSLog(@"JSON Response was: %@", JSON);
-    } failure:^(NSError *error, id response) {
-        NSLog(@"Error while retrieving forecast: %@", [forecastr messageForError:error withResponse:response]);
+    [[MOMForecastrManager sharedManager] getCurrentWeatherAndDailyForecastForLatitude:@41.3851 andLongitude:@2.1734 completion:^(MOMWeather *current, NSArray<MOMWeather *> *daily, NSArray<MOMWeather *> *hourly) {
+        
     }];
     
     return YES;

@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'Mami Weather' do
 	pod 'Forecastr'
+    pod 'Mantle'
 end
