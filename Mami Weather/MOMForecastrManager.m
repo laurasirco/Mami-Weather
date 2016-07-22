@@ -41,11 +41,10 @@
 
 #pragma mark - Methods
 
-- (void) getCurrentWeatherAndDailyForecastForLatitude:(NSNumber *)latitude andLongitude:(NSNumber *)longitude completion:(void (^)(MOMWeather * current, NSArray<MOMWeather *> * daily, NSArray<MOMWeather *> * hourly))completion {
+- (void) getCurrentWeatherAndDailyForecastForLatitude:(float)latitude andLongitude:(float)longitude completion:(void (^)(MOMWeather * current, NSArray<MOMWeather *> * daily, NSArray<MOMWeather *> * hourly))completion {
     
-    //TODO: HANDLE ERROR
     NSArray *tmpExclusions = @[kFCAlerts, kFCFlags, kFCMinutelyForecast];
-    [[Forecastr sharedManager] getForecastForLatitude:latitude.floatValue longitude:longitude.floatValue time:nil exclusions:tmpExclusions extend:kFCExtendHourly language:@"es" success:^(id JSON) {
+    [[Forecastr sharedManager] getForecastForLatitude:latitude longitude:longitude time:nil exclusions:tmpExclusions extend:kFCExtendHourly language:@"es" success:^(id JSON) {
         
         NSDictionary * dictionary = (NSDictionary *)JSON;
         NSError * error;
@@ -55,8 +54,8 @@
         completion(currentWeather, dailyWeather, hourlyWeather);
         
     } failure:^(NSError *error, id response) {
+        //TODO: HANDLE ERROR
         NSLog(@"Error while retrieving forecast: %@", [[Forecastr sharedManager] messageForError:error withResponse:response]);
-        
     }];
 }
 

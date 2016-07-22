@@ -14,6 +14,6 @@
 
 + (MOMForecastrManager *)sharedManager;
 
-- (void) getCurrentWeatherAndDailyForecastForLatitude:(NSNumber *)latitude andLongitude:(NSNumber *)longitude completion:(void (^) (MOMWeather * current, NSArray<MOMWeather *> * daily, NSArray<MOMWeather *> * hourly))completion;
+- (void) getCurrentWeatherAndDailyForecastForLatitude:(float)latitude andLongitude:(float)longitude completion:(void (^) (MOMWeather * current, NSArray<MOMWeather *> * daily, NSArray<MOMWeather *> * hourly))completion;
 
 @end

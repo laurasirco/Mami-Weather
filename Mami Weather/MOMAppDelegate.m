@@ -7,7 +7,6 @@
 //
 
 #import "MOMAppDelegate.h"
-#import "MOMForecastrManager.h"
 
 @interface MOMAppDelegate ()
 
@@ -18,10 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    [[MOMForecastrManager sharedManager] getCurrentWeatherAndDailyForecastForLatitude:@41.3851 andLongitude:@2.1734 completion:^(MOMWeather *current, NSArray<MOMWeather *> *daily, NSArray<MOMWeather *> *hourly) {
-        
-    }];
     
     return YES;
 }

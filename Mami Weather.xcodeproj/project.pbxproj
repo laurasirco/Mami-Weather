@@ -19,6 +19,8 @@
 		D350EE261CF0768A00E2E505 /* Mami_WeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D350EE251CF0768A00E2E505 /* Mami_WeatherTests.m */; };
 		DBFAF97A1D4220750085BED8 /* MOMWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFAF9791D4220750085BED8 /* MOMWeather.m */; };
 		DBFAF97D1D4225530085BED8 /* MOMForecastrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFAF97C1D4225530085BED8 /* MOMForecastrManager.m */; };
+		DBFAF9811D422D6A0085BED8 /* MOMLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFAF9801D422D6A0085BED8 /* MOMLocationManager.m */; };
+		DBFAF9831D4232E30085BED8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFAF9821D4232E30085BED8 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		DBFAF9791D4220750085BED8 /* MOMWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMWeather.m; sourceTree = "<group>"; };
 		DBFAF97B1D4225530085BED8 /* MOMForecastrManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMForecastrManager.h; sourceTree = "<group>"; };
 		DBFAF97C1D4225530085BED8 /* MOMForecastrManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMForecastrManager.m; sourceTree = "<group>"; };
+		DBFAF97F1D422D6A0085BED8 /* MOMLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMLocationManager.h; sourceTree = "<group>"; };
+		DBFAF9801D422D6A0085BED8 /* MOMLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMLocationManager.m; sourceTree = "<group>"; };
+		DBFAF9821D4232E30085BED8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBFAF9831D4232E30085BED8 /* CoreLocation.framework in Frameworks */,
 				22DF2D11387809F2FA803D72 /* Pods_Mami_Weather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +94,7 @@
 		C2AF987AF1590B86580E6E1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DBFAF9821D4232E30085BED8 /* CoreLocation.framework */,
 				5BE51A6A42BC4749BA00F879 /* Pods_Mami_Weather.framework */,
 			);
 			name = Frameworks;
@@ -116,6 +123,7 @@
 		D350EE0A1CF0768A00E2E505 /* Mami Weather */ = {
 			isa = PBXGroup;
 			children = (
+				DBFAF97E1D422D570085BED8 /* Managers */,
 				DBFAF9771D42204A0085BED8 /* Model */,
 				D350EE0E1CF0768A00E2E505 /* MOMAppDelegate.h */,
 				D350EE0F1CF0768A00E2E505 /* MOMAppDelegate.m */,
@@ -129,8 +137,6 @@
 				D3045D1A1CF37BD70035CC38 /* MOMMainViewController.m */,
 				D34E97B11CFB57A000F9D441 /* MOMSceneUtils.h */,
 				D34E97B21CFB57A000F9D441 /* MOMSceneUtils.m */,
-				DBFAF97B1D4225530085BED8 /* MOMForecastrManager.h */,
-				DBFAF97C1D4225530085BED8 /* MOMForecastrManager.m */,
 			);
 			path = "Mami Weather";
 			sourceTree = "<group>";
@@ -159,6 +165,17 @@
 				DBFAF9791D4220750085BED8 /* MOMWeather.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		DBFAF97E1D422D570085BED8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DBFAF97B1D4225530085BED8 /* MOMForecastrManager.h */,
+				DBFAF97C1D4225530085BED8 /* MOMForecastrManager.m */,
+				DBFAF97F1D422D6A0085BED8 /* MOMLocationManager.h */,
+				DBFAF9801D422D6A0085BED8 /* MOMLocationManager.m */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +335,7 @@
 				D350EE101CF0768A00E2E505 /* MOMAppDelegate.m in Sources */,
 				DBFAF97D1D4225530085BED8 /* MOMForecastrManager.m in Sources */,
 				D3045D1B1CF37BD70035CC38 /* MOMMainViewController.m in Sources */,
+				DBFAF9811D422D6A0085BED8 /* MOMLocationManager.m in Sources */,
 				D34E97B31CFB57A000F9D441 /* MOMSceneUtils.m in Sources */,
 				D350EE0D1CF0768A00E2E505 /* main.m in Sources */,
 				DBFAF97A1D4220750085BED8 /* MOMWeather.m in Sources */,

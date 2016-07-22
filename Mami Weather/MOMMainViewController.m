@@ -8,8 +8,11 @@
 
 #import "MOMMainViewController.h"
 #import "MOMSceneUtils.h"
+#import "MOMLocationManager.h"
+#import "MOMForecastrManager.h"
+#import "MOMWeather.h"
 
-@interface MOMMainViewController (){
+@interface MOMMainViewController () <MOMLocationManagerDelegate>{
     CAAnimation * lowWindAnimation;
     CAAnimation * highWindAnimation;
     SCNNode * plantArmature;
@@ -34,8 +37,11 @@
 - (void) setup {
     
     [self setupScene];
-    
     [self setupAmbientColors];
+    
+    MOMLocationManager * locationManager = [MOMLocationManager sharedManager];
+    locationManager.delegate = self;
+    [locationManager startUpdatingLocation];
 }
 
 #pragma mark - Window Scene Configuration
@@ -94,6 +100,22 @@
     gradient.frame = self.view.bounds;
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0.3 green:0.6 blue:0.95 alpha:1.0] CGColor], (id)[[UIColor colorWithRed:1.0 green:0.5 blue:0.1 alpha:1.0] CGColor], nil];
     [self.view.layer insertSublayer:gradient atIndex:0];
+}
+
+#pragma mark - location manager delegate
+
+- (void)didAcquireLocation:(CLLocation *)location {
+    
+    [[MOMForecastrManager sharedManager] getCurrentWeatherAndDailyForecastForLatitude:location.coordinate.latitude andLongitude:location.coordinate.longitude completion:^(MOMWeather *current, NSArray<MOMWeather *> *daily, NSArray<MOMWeather *> *hourly) {
+        
+        NSLog(@"current temperature: %f", current.temperature.floatValue);
+        
+    }];
+}
+
+- (void)didFailToAcquireLocationWithErrorMessage:(NSString *)errorMsg {
+    
+    NSLog(@"error: %@", errorMsg);
 }
 
 @end
