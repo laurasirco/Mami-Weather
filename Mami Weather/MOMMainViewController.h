@@ -12,5 +12,7 @@
 @interface MOMMainViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet SCNView * sceneView;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
 
 @end

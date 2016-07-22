@@ -44,6 +44,31 @@
     [locationManager startUpdatingLocation];
 }
 
+#pragma mark - location manager delegate
+
+- (void)didAcquireLocation:(CLLocation *)location {
+    
+    [[MOMForecastrManager sharedManager] getCurrentWeatherAndDailyForecastForLatitude:location.coordinate.latitude andLongitude:location.coordinate.longitude completion:^(MOMWeather *current, NSArray<MOMWeather *> *daily, NSArray<MOMWeather *> *hourly) {
+        
+        [MOMWeather setCurrentWeather:current];
+        [self updateViewWithCurrentWeather];
+        
+    }];
+}
+
+- (void)didFailToAcquireLocationWithErrorMessage:(NSString *)errorMsg {
+    
+    NSLog(@"error: %@", errorMsg);
+}
+
+#pragma mark - Configure view with weather methods
+
+- (void) updateViewWithCurrentWeather {
+    
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%dº",[MOMWeather currentWeather].temperature.intValue];
+    self.summaryLabel.text = [MOMWeather currentWeather].summary;
+}
+
 #pragma mark - Window Scene Configuration
 
 - (void) setupScene {
@@ -100,22 +125,6 @@
     gradient.frame = self.view.bounds;
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0.3 green:0.6 blue:0.95 alpha:1.0] CGColor], (id)[[UIColor colorWithRed:1.0 green:0.5 blue:0.1 alpha:1.0] CGColor], nil];
     [self.view.layer insertSublayer:gradient atIndex:0];
-}
-
-#pragma mark - location manager delegate
-
-- (void)didAcquireLocation:(CLLocation *)location {
-    
-    [[MOMForecastrManager sharedManager] getCurrentWeatherAndDailyForecastForLatitude:location.coordinate.latitude andLongitude:location.coordinate.longitude completion:^(MOMWeather *current, NSArray<MOMWeather *> *daily, NSArray<MOMWeather *> *hourly) {
-        
-        NSLog(@"current temperature: %f", current.temperature.floatValue);
-        
-    }];
-}
-
-- (void)didFailToAcquireLocationWithErrorMessage:(NSString *)errorMsg {
-    
-    NSLog(@"error: %@", errorMsg);
 }
 
 @end

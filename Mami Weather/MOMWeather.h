@@ -38,4 +38,7 @@
 @property (nonatomic, strong) NSDate * sunriseTime;
 @property (nonatomic, strong) NSDate * sunsetTime;
 
++ (MOMWeather *)currentWeather;
++ (void)setCurrentWeather:(MOMWeather *)weather;
+
 @end

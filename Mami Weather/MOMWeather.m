@@ -10,6 +10,21 @@
 
 @implementation MOMWeather
 
+static MOMWeather * currentWeather = nil;
+static NSArray<MOMWeather *> * dailyWeather = nil;
+static NSArray<MOMWeather *> * hourlyWeather = nil;
+
++ (MOMWeather *) currentWeather {
+    
+    return currentWeather;
+}
+
++ (void) setCurrentWeather:(MOMWeather *)weather {
+    
+    currentWeather = weather;
+}
+
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     
     return @{
